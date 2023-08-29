@@ -8,8 +8,10 @@ endpoints.post('/cliente', async (req, resp) =>{
         let cliente = req.body;
         let r = await inserir( cliente );
         resp.send(r);
-    } catch (error) {
-        resp.status(400).send('ocorreu um erro!!')
+    } catch (err) {
+        resp.status(400).send(
+            err.message
+        )
     }
 })
 
@@ -20,7 +22,10 @@ endpoints.put('/cliente/:id', async (req, resp) =>{
         let r = await alterar( id, cliente);
         resp.send(r);
     } catch (error) {
-        resp.status(400).send('ocorre um ero!!!')
+        resp.status(400).send(
+            error.message
+
+        )
     }
 })
 
@@ -30,16 +35,23 @@ endpoints.delete('/cliente/:id', async (req, resp) =>{
         let r = await deletar( id );
         resp.send(  )
     } catch (error) {
-        resp.status(400).send('ocorre um ero!!!')
+        resp.status(400).send(
+            error.message
+        )
     }
 })
 
-endpoints.get('/clientes', async (req, resp) =>{
+endpoints.get('/cliente', async (req, resp) =>{
     try {
-        let r = await consultar();
-        resp.send(r)
+
+        const r = await consultar();
+        resp.send(r);
+        
     } catch (error) {
-        resp.status(400).send('ocorre um ero!!!')
+        resp.status(400).send(
+
+            error.message
+        );
     }
 })
 
@@ -49,7 +61,9 @@ endpoints.get('/clientes/busca', async (req, resp) =>{
         let r = await consultarporNome( nome );
         resp.send( r ); 
     } catch (error) {
-        resp.status(400).send('ocorre um ero!!!')
+        resp.status(400).send(          
+              error.message
+        )
     }
 })
 

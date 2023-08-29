@@ -21,13 +21,13 @@ export async function inserir( cliente ){
 
 export async function alterar( cliente , id){
     const comando = 
-    `	 update 	tb_cliente
-         set		nm_cliente = ?,
-                    ds_email = ?,
-                    ds_telefone = ?,
-                    ds_cpf = ? ,
-                    ds_cnh = ?
-        where       id_cliente = ?`
+    `		update   	tb_cliente
+            set 		nm_cliente = ?,
+                        ds_email = ?,
+                        ds_telefone = ?,
+                        ds_cpf = ? ,
+                        ds_cnh = ?
+            where    	id_cliente = ?`
 
      let [dados] = await connection.query( comando , [
         cliente.nome,
@@ -62,8 +62,8 @@ export async function consultar(){
                 ds_cnh as CNH
     from 		tb_cliente`
 
-    let [dados] = connection.query( comando );
-    return dados;
+    let [dados] = await connection.query( comando,  [] );
+    return (dados);
 }
 
 export async function consultarporNome( nome ){
@@ -77,6 +77,6 @@ export async function consultarporNome( nome ){
     from 		tb_cliente
     where       nm_cliente like ?`
 
-    let [dados] = connection.query( comando, ['%' + nome + '%'] );
+    let [dados] = await connection.query( comando, ['%' + nome + '%'] );
     return dados
 }
