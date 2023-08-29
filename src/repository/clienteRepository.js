@@ -22,7 +22,7 @@ export async function inserir( cliente ){
 export async function alterar( cliente , id){
     const comando = 
     `	 update 	tb_cliente
-         set		nm_clinte = ?,
+         set		nm_cliente = ?,
                     ds_email = ?,
                     ds_telefone = ?,
                     ds_cpf = ? ,
@@ -54,28 +54,28 @@ export async function deletar( id ){
 
 export async function consultar(){
     const comando = 
-    `select  	id_clinte as id,
+    `select  	id_cliente as id,
                 nm_cliente as nome,
                 ds_email as email,
                 ds_telefone as telefone,
                 ds_cpf as CPF,
                 ds_cnh as CNH
-    from 		tb_clinte`
+    from 		tb_cliente`
 
     let [dados] = connection.query( comando );
-    return dados
+    return dados;
 }
 
 export async function consultarporNome( nome ){
     const comando = 
-    `select  	id_clinte as id,
+    `select  	id_cliente as id,
                 nm_cliente as nome,
                 ds_email as email,
                 ds_telefone as telefone,
                 ds_cpf as CPF,
                 ds_cnh as CNH
-    from 		tb_clinte
-    where       nm_nome = ?`
+    from 		tb_cliente
+    where       nm_cliente like ?`
 
     let [dados] = connection.query( comando, ['%' + nome + '%'] );
     return dados

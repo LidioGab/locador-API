@@ -28,13 +28,13 @@ endpoints.delete('/cliente/:id', async (req, resp) =>{
     try {
         let id = req.params.id;
         let r = await deletar( id );
-        resp.send( r )
+        resp.send(  )
     } catch (error) {
         resp.status(400).send('ocorre um ero!!!')
     }
 })
 
-endpoints.get('/cliente', async (req, resp) =>{
+endpoints.get('/clientes', async (req, resp) =>{
     try {
         let r = await consultar();
         resp.send(r)
@@ -45,7 +45,7 @@ endpoints.get('/cliente', async (req, resp) =>{
 
 endpoints.get('/clientes/busca', async (req, resp) =>{
     try {
-        let nome = req.query.nome;
+        let nome = req.query.n ;
         let r = await consultarporNome( nome );
         resp.send( r ); 
     } catch (error) {

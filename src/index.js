@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import 'dotenv/config';
 
 import express from 'express';
 import cors from 'cors';
@@ -12,4 +12,4 @@ server.use(express.json());
 server.use(clienteController);
 
 
-server.listen( process.env.PORT , () => console.log(`API subiu na porta ${ process.env.PORT }`))
+server.listen( 5000 , () => console.log(`API subiu na porta 5000`))
