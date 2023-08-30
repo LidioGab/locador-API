@@ -19,6 +19,7 @@ export async function inserir( cliente ){
             
 };
 
+
 export async function alterar( cliente , id){
     const comando = 
     `		update   	tb_cliente
