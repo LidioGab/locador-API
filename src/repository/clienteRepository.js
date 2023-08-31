@@ -20,22 +20,22 @@ export async function inserir( cliente ){
 };
 
 
-export async function alterar( cliente , id){
+export async function alterar(nome, email, telefone, cpf, cnh ,id){
     const comando = 
     `		update   	tb_cliente
-            set 		nm_cliente = ?,
+            set 		nm_cliente = ? ,
                         ds_email = ?,
                         ds_telefone = ?,
                         ds_cpf = ? ,
                         ds_cnh = ?
-            where    	id_cliente = ?`
+            where    	id_cliente = ?   `
 
      let [dados] = await connection.query( comando , [
-        cliente.nome,
-        cliente.email,
-        cliente.telefone,
-        cliente.cpf,
-        cliente.cnh,
+        nome,
+        email,
+        telefone,
+        cpf,
+        cnh,
         id
      ])
      let linha= dados.affectedRows;

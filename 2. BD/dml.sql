@@ -5,5 +5,14 @@ create table tb_cliente(
                         ds_telefone					varchar(100) not null,
                         ds_cpf						varchar(100) not null,
                         ds_cnh						varchar(100) not null
-                        );
+);
+
+
+{
+  "nome":"lidio gabriel do nascimento",
+  "email":"lidiogabriel4@gmail.com",
+  "telefone":"11973361519",
+  "cpf":"44616267847",
+  "cnh":"923034045"
+}
                         

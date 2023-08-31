@@ -17,10 +17,11 @@ endpoints.post('/cliente', async (req, resp) =>{
 
 endpoints.put('/cliente/:id', async (req, resp) =>{
     try {
-        let cliente = req.body;
+        let {nome, email, telefone, cpf, cnh} = req.body;
         let id = req.params.id;
-        let r = await alterar( id, cliente);
-        resp.send(r);
+        let r = await alterar( nome, email, telefone, cpf, cnh ,id);
+        resp.send(String(r));
+        
     } catch (error) {
         resp.status(400).send(
             error.message
